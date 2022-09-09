@@ -13,17 +13,28 @@ class Movie
   public $year;
   public $genre;
   public $director;
+  public $synopsis;
   
-  public function __construct($name, $year, $genre, $director)
+  public function __construct($name, $year, $genre, $director, $synopsis)
   {
     $this->name = $name;
     $this->year = $year;
     $this->genre = $genre;
     $this->director = $director;
+    $this->synopsis = $synopsis;
+  }
+
+  public function getAbstract()
+  {
+    return substr($this->synopsis, 0, 30) . '...';
   }
 }
 
-$movie1 = new Movie('The dark knight', '2008', 'superhero', 'Christopher Nolan')
+$movie1_synopsis = "Batman e Jim Gordon si alleano con il nuovo procuratore di Gotham City, Harvey Dent, per combattere il crimine organizzato che dilaga in città e fermare un pericoloso rapinatore, il Joker, che ha gettato la città nell'anarchia.";
+
+$movie_1 = new Movie('The dark knight', '2008', 'superhero', 'Christopher Nolan',$movie1_synopsis);
+
+//var_dump($movie_1->getAbstract());
 ?>
 
 <!DOCTYPE html>
@@ -35,6 +46,15 @@ $movie1 = new Movie('The dark knight', '2008', 'superhero', 'Christopher Nolan')
     <title>Document</title>
 </head>
 <body>
-    
+   <h1>MY MOVIES</h1>
+   <article>
+      <p><?= $movie_1->getAbstract() ?></p>
+      <h2><?= $movie_1->name ?></h2>
+      <address><?= $movie_1->year ?></address>
+      <address><?= $movie_1->genre ?></address>
+      <address><?= $movie_1->director ?></address>
+      <p><?= $movie_1->synopsis ?></p>
+   </article>
+
 </body>
 </html>
