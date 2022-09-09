@@ -12,8 +12,18 @@ class Movie
   public $name;
   public $year;
   public $genre;
-  public $director;    
+  public $director;
+  
+  public function __construct($name, $year, $genre, $director)
+  {
+    $this->name = $name;
+    $this->year = $year;
+    $this->genre = $genre;
+    $this->director = $director;
+  }
 }
+
+$movie1 = new Movie('The dark knight', '2008', 'superhero', 'Christopher Nolan')
 ?>
 
 <!DOCTYPE html>
